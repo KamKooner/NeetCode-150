@@ -1,0 +1,11 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        c1 = list(str(s))
+        c2 = list(str(t))
+        c1.sort()
+        c2.sort()
+        
+        if c1 == c2:
+            return True
+        return False
+
