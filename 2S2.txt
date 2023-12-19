@@ -1,0 +1,12 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        myDict= {}
+        for i in range(len(nums)):
+            if target-nums[i] not in myDict:
+                myDict[nums[i]] = i
+                    
+            else: 
+                return [i,myDict[target-nums[i]]]
+        
+
+        
