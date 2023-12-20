@@ -1,0 +1,30 @@
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:        
+        for i in range(9):
+            occRow = {}
+            occCol = {}
+            numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+            for j in range(9):
+                #check row
+                if board[i][j] not in numbers and board[i][j] != '.':
+                    print("t1")
+                    return False
+                if board[i][j] != '.' and board[i][j] not in occRow:
+                    occRow[board[i][j]] = 1
+                elif board[i][j] != '.':
+                    print("t2")
+                    print(board[i][j])
+                    return False
+                #check column
+                if board[j][i] not in numbers and board[j][i] != '.':
+                    print("t3")
+                    return False
+                if board[j][i] != '.' and board[j][i] not in occCol:
+                    occCol[board[j][i]] = 1
+                elif board[j][i] != '.':
+                    print("t4")
+                    return False
+                #check 3x3
+                
+
+            return True
