@@ -1,0 +1,20 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        hs = {}
+        final = []
+        
+        #find most frequents    
+        for num in nums:
+            if(num in hs):
+                hs[num] +=1
+            else:
+                hs[num] = 1
+
+        #remove it from the list 
+        for i in range(k):
+            maxNum = max(hs, key=hs.get)
+            final.append(maxNum)
+            del hs[maxNum]
+            
+        return final
+            
