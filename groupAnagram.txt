@@ -1,0 +1,15 @@
+class Solution:
+    def groupAnagrams(self, strs):
+        hs = {}
+        final =[]
+        for ele in strs:
+            sort = ''.join(sorted(ele))
+            if sort not in hs:
+                hs[sort] = [ele]
+            else:
+                hs[sort].append(ele)
+        for value in hs.values():
+            final.append(value)
+        return final
+            
+        
