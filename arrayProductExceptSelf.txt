@@ -1,0 +1,26 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        pre, post, final = [], [], []
+        #pre construction
+        product = 1
+        for i in range(len(nums)):
+            if i == 0:
+                pre.append(1)
+            else:
+                product*=nums[i-1]
+                pre.append(product)
+
+        #post construction
+        product = 1
+        for i in range(len(nums)-1, -1, -1):
+            if i == len(nums) - 1:
+                post.append(1)
+            else:
+                product*= nums[i+1]
+                post.insert(0, product)
+        #pre and post product final array 
+        for i in range(len(pre)):
+            final.append(pre[i]*post[i])
+        #return
+        return final
+                        
